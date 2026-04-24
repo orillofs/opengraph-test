@@ -19,29 +19,21 @@ export async function generateMetadata({
     };
   }
 
-  const description = `A Picsum photo by ${photo.author} with dimensions ${photo.width}x${photo.height}.`;
+  const title = `Explore This Picsum Photo by ${photo.author}`;
+  const description = `View a full-size Picsum image by ${photo.author}, explore the photo detail page, and open a clean preview card designed for sharing on Discord and Facebook.`;
 
   return {
-    title: photo.title,
+    title,
     description,
     openGraph: {
-      title: photo.title,
+      title,
       description,
       type: "website",
-      images: [
-        {
-          url: photo.url,
-          width: 600,
-          height: 600,
-          alt: photo.title,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: photo.title,
+      title,
       description,
-      images: [photo.url],
     },
   };
 }
