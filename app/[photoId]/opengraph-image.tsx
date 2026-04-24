@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
 import { getPhoto } from "../lib/photos";
 
@@ -40,13 +41,28 @@ export default async function OpenGraphImage({
           fontFamily: "sans-serif",
         }}
       >
+        {photo ? (
+          <img
+            src={photo.url}
+            alt={photo.title}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        ) : null}
+
         <div
           style={{
             position: "absolute",
             inset: 0,
             display: "flex",
-            background:
-              "radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%)",
+            background: photo
+              ? "linear-gradient(90deg, rgba(17,24,39,0.88) 0%, rgba(17,24,39,0.62) 45%, rgba(17,24,39,0.28) 100%)"
+              : "radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%)",
           }}
         />
 
