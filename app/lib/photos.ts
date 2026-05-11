@@ -27,7 +27,7 @@ function mapPhoto(photo: PicsumPhoto): Photo {
     width: photo.width,
     height: photo.height,
     url: `${API_BASE_URL}/id/${photo.id}/1200/1200`,
-    thumbnailUrl: `${API_BASE_URL}/id/${photo.id}/400/300`,
+    thumbnailUrl: `${API_BASE_URL}/id/${photo.id}/1200/650`,
   };
 }
 
